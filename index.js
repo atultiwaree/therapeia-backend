@@ -3,7 +3,7 @@ const app = express();
 const http = require("http");
 const morgan = require("morgan");
 const server = http.createServer(app);
-
+const removMD = require('remove-markdown')
 const OpenAI = require('openai')
 
 const openai = new OpenAI({ apiKey: process.env.API });
@@ -51,10 +51,8 @@ app.post("/askai", async (req, res) => {
 
     // console.log(JSON.stringify())
 
-    return res.json({success : true, message : messages.data[0]?.content[0]?.text?.value})
+    return res.json({success : true, message : removMD(messages.data[0]?.content[0]?.text?.value)})
     
-
-
     // for (const message of messages.data.reverse()) {
     //   console.log(`${message.role} > ${message.content[0].text.value}`);
     // }
