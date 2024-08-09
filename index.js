@@ -15,6 +15,9 @@ app.use(morgan("tiny"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+
+app.get("/", (req, res) => res.json({success : true, message : "Deployed!"}))
+
 app.post("/askai", async (req, res) => {
 
   const assistant = await openai.beta.assistants.create({
