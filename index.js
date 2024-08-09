@@ -3,7 +3,6 @@ const app = express();
 const http = require("http");
 const morgan = require("morgan");
 const server = http.createServer(app);
-const PORT = process.env.PORT || 3000;
 
 const OpenAI = require('openai')
 
@@ -72,6 +71,6 @@ app.post("/askai", async (req, res) => {
 
 
 
-server.listen(PORT, (err) =>
-  !err ? console.log(`✔ Node Listening to http://localhost:${PORT}`) : console.log("There was some error ", err.message)
+server.listen(3000, (err) =>
+  !err ? console.log(`✔ Node Listening to http://localhost:${3000}`) : console.log("There was some error ", err.message)
 );
