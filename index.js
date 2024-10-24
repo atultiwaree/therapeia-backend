@@ -20,7 +20,7 @@ app.get("/", (req, res) => res.json({success : true, message : "Deployed!"}))
 app.post("/askai", async (req, res) => {
 
   const assistant = await openai.beta.assistants.create({
-    name: "Therapeia",
+    name: "TherapyAI",
     instructions: "You are mental therapist, say sorry to every questions which is not related to mind",
     model: "gpt-4o"
   });
